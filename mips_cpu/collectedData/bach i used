@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Check if an argument is provided
+if [ $# -eq 0 ]; then
+  echo "Usage: ./sakoo.sh <output_file_prefix>"
+  exit 1
+fi
+
+# Assign the first argument to the variable output_prefix
+output_prefix=$1
+
+# Run Vmips_core with the "nqueens" benchmark and store the output in a text file
+./obj_dir/Vmips_core -b nqueens > "./collectedData/${output_prefix}_nqueens.txt"
+
+# Run Vmips_core with the "coin" benchmark and store the output in a text file
+./obj_dir/Vmips_core -b coin > "./collectedData/${output_prefix}_coin.txt"
+
+# Run Vmips_core with the "qsort" benchmark and store the output in a text file
+./obj_dir/Vmips_core -b qsort > "./collectedData/${output_prefix}_qsort.txt"
+
+# Run Vmips_core with the "esift" benchmark and store the output in a text file
+./obj_dir/Vmips_core -b esift > "./collectedData/${output_prefix}_esift.txt"
+
+# Run Vmips_core with the "esift2" benchmark and store the output in a text file
+./obj_dir/Vmips_core -b esift2 > "./collectedData/${output_prefix}_esift2.txt"
